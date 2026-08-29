@@ -3,7 +3,7 @@
 import { use } from "react";
 import Link from "next/link";
 import { Pencil, Mail, Phone, MapPin, Calendar, Building2, BadgeCheck } from "lucide-react";
-
+import { StaffDocuments } from "@/components/shared/staff-documents";
 import { PageHeader } from "@/components/shared/page-header";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -78,6 +78,9 @@ export default function StaffDetailPage({ params }: { params: Promise<{ id: stri
           </CardContent>
         </Card>
       </div>
+      <div className="mt-6">
+  <StaffDocuments staffId={id} />
+</div>
     </>
   );
 }
