@@ -21,6 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { PhotoUpload } from "@/components/shared/photo-upload";
 import { staffSchema, type StaffFormValues } from "@/schemas/staff.schema";
 import { useDepartments } from "@/hooks/use-departments";
 import { usePositions } from "@/hooks/use-positions";
@@ -31,11 +32,14 @@ export function StaffForm({
   onSubmit,
   isSubmitting,
   submitLabel = "Save staff record",
+  photoFolderId = "new",
 }: {
   defaultValues?: Partial<StaffFormValues>;
   onSubmit: (values: StaffFormValues) => void;
   isSubmitting?: boolean;
   submitLabel?: string;
+  /** Folder id used to namespace uploaded photos in Storage — pass the staff record's UUID when editing. */
+  photoFolderId?: string;
 }) {
   const { data: departments } = useDepartments();
   const { data: positions } = usePositions();
@@ -56,6 +60,7 @@ export function StaffForm({
       position_id: "",
       employment_status: "active",
       date_employed: "",
+      photo_url: "",
       ...defaultValues,
     },
   });
@@ -63,6 +68,18 @@ export function StaffForm({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <FormField
+          control={form.control}
+          name="photo_url"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Photo</FormLabel>
+              <PhotoUpload value={field.value} onChange={field.onChange} folderId={photoFolderId} />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
         <div className="grid gap-4 sm:grid-cols-2">
           <FormField
             control={form.control}

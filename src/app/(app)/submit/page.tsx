@@ -69,6 +69,7 @@ export default function SubmitRecordPage() {
               onSubmit={handleSubmit}
               isSubmitting={createSubmission.isPending}
               submitLabel="Submit for approval"
+                photoFolderId={existingStaff?.id ?? "new"}
             />
           )}
         </CardContent>

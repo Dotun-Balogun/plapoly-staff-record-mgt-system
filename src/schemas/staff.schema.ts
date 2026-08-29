@@ -22,6 +22,7 @@ export const staffSchema = z.object({
   position_id: z.string().uuid().optional().or(z.literal("")),
   employment_status: employmentStatusEnum,
   date_employed: z.string().optional().or(z.literal("")),
+  photo_url: z.string().optional().or(z.literal("")),
 });
 
 export type StaffFormValues = z.infer<typeof staffSchema>;

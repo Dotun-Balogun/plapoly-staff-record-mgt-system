@@ -54,6 +54,7 @@ export default function EditStaffPage({ params }: { params: Promise<{ id: string
             onSubmit={handleSubmit}
             isSubmitting={updateStaff.isPending}
             submitLabel="Save changes"
+photoFolderId={staff.id}
           />
         </CardContent>
       </Card>
