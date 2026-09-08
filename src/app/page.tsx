@@ -55,7 +55,7 @@ export default function LandingPage() {
         </div>
         <Button asChild size="sm">
           <Link href="/login">
-            Sign in <ArrowRight className="size-4" />
+            Sign up <ArrowRight className="size-4" />
           </Link>
         </Button>
       </header>

@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { PasswordInput } from "@/components/ui/password-input";
 import { Input } from "@/components/ui/input";
 import {
   Form,
@@ -110,7 +111,7 @@ export default function SignUpForm() {
                     <FormItem>
                       <FormLabel>Password</FormLabel>
                       <FormControl>
-                        <Input placeholder="At least 6 characters" type="password" {...field} />
+                       <PasswordInput placeholder="At least 6 characters" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
